@@ -1,16 +1,20 @@
-import React from 'react'
+import { useAuth } from "../context/AuthContext";
+import { useNavigate } from "react-router-dom";
 
-const Login = () => {
-  const handleLogin = ()=>{
-    localStorage.setItem("isAdmin", "true")
-    window.location.href = "/admin"
-  }
+const AdminLogin = () => {
+  const { loginAsAdmin } = useAuth();
+  const navigate = useNavigate();
+
+  const handleLogin = () => {
+    loginAsAdmin();
+    navigate("/admin");
+  };
+
   return (
-    <div>
-      <h1>Admin Login</h1>
-      <button onClick={handleLogin}>Login as a admin</button>
-    </div>
-  )
-}
+    <button onClick={handleLogin}>
+      Login as Admin
+    </button>
+  );
+};
 
-export default Login
+export default AdminLogin;

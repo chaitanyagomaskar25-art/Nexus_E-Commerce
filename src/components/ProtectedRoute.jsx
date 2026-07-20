@@ -1,12 +1,14 @@
-import React, { Children } from 'react'
-import { Navigate } from 'react-router-dom'
+import { useNavigate } from "react-router";
+import { useAuth } from "../context/AuthContext";
 
-const ProtectedRoute = ({children}) => {
-    const isAdmin = localStorage.getItem("isAdmin")
-  if(!isAdmin){
-    return <Navigate to="/login" replace/>
+const ProtectedRoute = ({ children }) => {
+  const { isAdmin } = useAuth();
+const navigate = useNavigate()
+  if (!isAdmin) {
+    navigate('/login', { replace: true });
   }
-  return children
-}
 
-export default ProtectedRoute
+  return children;
+};
+
+export default ProtectedRoute;
