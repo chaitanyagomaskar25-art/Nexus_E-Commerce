@@ -13,6 +13,7 @@ const routes = createBrowserRouter([
     {
         path: "/",
         element: <PublicLayout />,
+        errorElement: <h1>Error</h1>,
         children: [
             {
                 index: true,

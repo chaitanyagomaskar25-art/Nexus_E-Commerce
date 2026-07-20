@@ -5,7 +5,7 @@ import { useCart } from '../context/CartContext'
 const Navbar = () => {
   const cart = useCart();
 
-  const totalItems = cart.reduce((total, item)=> total+ item.quantity, 0)
+  const totalItems = cart.length;
   return (
     <nav>
       <Link to='/'>Home</Link> <br />
