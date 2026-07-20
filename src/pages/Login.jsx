@@ -1,7 +1,7 @@
 import { useAuth } from "../context/AuthContext";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
-const AdminLogin = () => {
+const Login = () => {
   const { loginAsAdmin } = useAuth();
   const navigate = useNavigate();
 
@@ -11,10 +11,15 @@ const AdminLogin = () => {
   };
 
   return (
+    <>
+    <Link to='/'>Back to Home</Link> <br />
     <button onClick={handleLogin}>
       Login as Admin
     </button>
+    
+    </>
+    
   );
 };
 
-export default AdminLogin;
+export default Login;

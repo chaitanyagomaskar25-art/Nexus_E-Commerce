@@ -19,7 +19,6 @@ export const AuthProvider = ({ children }) => {
         role,
         loginAsAdmin,
         logout,
-        isAdmin: role === "admin",
       }}
     >
       {children}
